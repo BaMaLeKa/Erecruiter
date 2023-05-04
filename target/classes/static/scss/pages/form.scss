@@ -1,0 +1,74 @@
+@import "../globalStyles";
+
+header {
+  padding: 3.75em 9.0625em;
+  @include breakpoint-up(xlarge) {
+    padding: 3.75em 15.9375em;
+  }
+}
+
+h1 {
+  width: 591px;
+  text-align: center;
+  position: absolute;
+}
+
+input,
+select {
+  background: none;
+  border: 1px solid #c4c4c4;
+  border-radius: 3px;
+  height: 30px;
+  width: 15.625em;
+  font-family: $ff-montserrat;
+  font-weight: $fw-regular;
+  font-size: $fs-small;
+  padding-left: 10px;
+  background: #ffff;
+  margin-right: 20px;
+}
+
+label,
+p {
+  font-size: $fs-small;
+  font-family: $ff-poppins;
+  font-weight: $fw-regular;
+}
+
+.bottom-info {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  opacity: 75%;
+
+  a {
+    color: rgb(0, 0, 238);
+  }
+}
+
+.input-block {
+  margin-bottom: 0.85em;
+}
+
+.input-inside {
+  margin-top: 5px;
+}
+
+.input-row-1,
+.input-row-2,
+.input-row-3,
+.input-row-4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-wrapper {
+  position: relative;
+}
+
+

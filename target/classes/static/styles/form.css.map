@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,iBAAI",
+    "sources": [
+        "../scss/pages/form.scss"
+    ],
+    "names": [],
+    "file": "form.css"
+}

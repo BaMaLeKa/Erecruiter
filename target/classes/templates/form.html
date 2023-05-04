@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erecruit | Uzupełnij dane rekrutacyjne</title>
+    <link rel="stylesheet" href="./styles/form.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon.png"
+    />
+  </head>
+
+  <body
+    style="
+      position: relative;
+      background: #fafafa;
+      height: 100vh;
+      overflow: hidden;
+    "
+  >
+    <img
+      src="./images/form-smimg-1.svg"
+      alt=""
+      style="
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 10%;
+      "
+    />
+    <img
+      src="./images/form-smimg-2.svg"
+      alt=""
+      style="
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 10%;
+      "
+    />
+    <img
+      src="./images/form-smimg-3.svg"
+      alt=""
+      style="position: absolute; bottom: -50px; left: 400px; width: 5%"
+    />
+
+    <div class="bottom-info">
+      <p>
+        Nie wiesz dlaczego potrzebujemy twoich danych? Sprawdź
+        <a href="/help">najważniejsze informacje</a>.
+      </p>
+    </div>
+
+    <header class="flex align-center justify-center">
+      <a href="/" class="no-link"
+        ><span class="logo--text">erecruit.pl</span></a
+      >
+    </header>
+    <div class="flex align-center justify-center" style="margin: 75px 0">
+      <h1>Uzupełnij dane potrzebne do rekrutacji</h1>
+    </div>
+    <form
+      class="flex align-center justify-center"
+      action="#"
+      th:action="@{/form}"
+      method="post"
+      th:object="${student}"
+    >
+      <div
+        class="
+          form-wrapper
+          flex
+          direction-column
+          align-start
+          justify-space-between
+        "
+      >
+        <div class="input-row-1">
+          <div class="input-block">
+            <label for="name">Imię</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                th:field="*{name}"
+                pattern="^[a-zA-ZóżźśćÓŻŹŚĆąĄęĘłŁ]+$"
+                required=""
+                title="Jedno słowo, tylko małe i wielkie litery"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="surname">Nazwisko</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="surname"
+                id="surname"
+                th:field="*{surname}"
+                pattern="^[a-zA-ZóżźśćÓŻŹŚĆąĄęĘłŁ]+$"
+                required=""
+                title="Jedno słowo, tylko małe i wielkie litery"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="email">Adres e-mail</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="email"
+                id="email"
+                th:field="*{email}"
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                required=""
+                title="nazwa@przykład.pl"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row-2">
+          <div class="input-block">
+            <label for="birthDate">Data urodzenia (rrrr-mm-dd)</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="birthDate"
+                id="birthDate"
+                th:field="*{birthDate}"
+                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                required=""
+                title="RRRR-MM-DD, np.: 1990-01-03"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="birthPlace">Miejsce urodzenia</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="birthPlace"
+                id="birthPlace"
+                th:field="*{birthPlace}"
+                pattern="^[a-zA-Z0-9óżźśćÓŻŹŚĆąĄęĘ ]+$"
+                required=""
+                title="Tylko wielkie i małe litery"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <!--                <label>Szkoła pierwszego wyboru?</label>-->
+            <!--                <input type="text" th:field="*{firstChoice}">-->
+            <label for="firstChoice">Szkoła pierwszego wyboru?</label>
+            <div class="input-inside">
+              <select
+                name="firstChoice"
+                id="firstChoice"
+                th:field="*{firstChoice}"
+              >
+                <option value="NIE">Nie</option>
+                <option value="TAK">Tak</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-block">
+            <label>Wybór rozszerzenia:</label>
+            <div class="input-inside">
+              <select th:field="*{extension}">
+                <option
+                  th:each="p : ${extensionList}"
+                  th:value="${p}"
+                  th:text="${p}"
+                />
+              </select>
+              <!--                ///////////////////////////////-->
+              <!--                <label for="extension">Wybór rozszerzenia</label>-->
+              <!--                <div class="input-inside">-->
+              <!--                    <select name="extension" id="extension" th:field="*{extension}" required="">-->
+              <!--                        <option value="">wybierz przedmiot</option>-->
+              <!--                        <option value=Technik_Mechanik">Technik Mechanik</option>-->
+              <!--                        <option value="Technik_Elektryk">Technik Elektryk</option>-->
+              <!--                        <option value="Technik_Informatyk">Technik Informatyk</option>-->
+              <!--                        <option value="Technik_Cukiernik">Technik Cukiernik</option>-->
+              <!--                    </select>-->
+              <!--                </div>-->
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row-3">
+          <div class="input-block">
+            <label for="address">Adres zamieszkania</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="address"
+                id="address"
+                th:field="*{address}"
+                pattern="^[a-zA-Z0-9óżźśćÓŻŹŚĆąĄęĘłŁ/ ]+$"
+                required=""
+                title="Ulica 15 lub Ulica 15/3"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="zipcode">Kod pocztowy</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="zipcode"
+                id="zipcode"
+                th:field="*{zipcode}"
+                pattern="[0-9]{2}-[0-9]{3}"
+                required=""
+                title="00-000"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="city">Miejsowość</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="city"
+                id="city"
+                th:field="*{city}"
+                pattern="^[a-zA-ZóżźśćÓŻŹŚĆąĄęĘ ]+$"
+                required=""
+                title="Tylko małe i wielkie litery"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="province">Województwo</label>
+            <div class="input-inside">
+              <select
+                name="province"
+                id="province"
+                th:field="*{province}"
+                required=""
+              >
+                <option value="">wybierz województwo</option>
+                <option value="dolnoslaskie">dolnośląskie</option>
+                <option value="kujawsko-pomorskie">kujawsko-pomorskie</option>
+                <option value="lubelskie">lubelskie</option>
+                <option value="lubuskie">lubuskie</option>
+                <option value="lodzkie">łódzkie</option>
+                <option value="malopolskie">małopolskie</option>
+                <option value="mazowieckie">mazowieckie</option>
+                <option value="opolskie">opolskie</option>
+                <option value="podkarpackie">podkarpackie</option>
+                <option value="podlaskie">podlaskie</option>
+                <option value="pomorskie">pomorskie</option>
+                <option value="slaskie">śląskie</option>
+                <option value="swietokrzyskie">świętokrzyskie</option>
+                <option value="warminsko-mazurskie">warmińsko-mazurskie</option>
+                <option value="wielkopolskie">wielkopolskie</option>
+                <option value="zachodniopomorskie">zachodniopomorskie</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-row-4">
+          <div class="input-block">
+            <label for="guardName">Imię opiekuna</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="guardName"
+                id="guardName"
+                th:field="*{guardName}"
+                pattern="^[a-zA-ZóżźśćÓŻŹŚĆąĄęĘłŁ]+$"
+                required=""
+                title="Jedno słowo, tylko małe i wielkie litery"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="guardSurname">Nazwisko opiekuna</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="guardSurname"
+                id="guardSurname"
+                th:field="*{guardSurname}"
+                pattern="^[a-zA-ZóżźśćÓŻŹŚĆąĄęĘłŁ]+$"
+                required=""
+                title="Jedno słowo, tylko małe i wielkie litery"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="guardTelephone">Numer telefonu opiekuna</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="guardTelephone"
+                id="guardTelephone"
+                th:field="*{guardTelephone}"
+                pattern="[0-9]{9}"
+                required=""
+                title="dziewięciocyfrowy numer, na przykład: 123000123"
+              />
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="guardEmail">Adres e-mail opiekuna</label>
+            <div class="input-inside">
+              <input
+                type="text"
+                name="guardEmail"
+                id="guardEmail"
+                th:field="*{guardEmail}"
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                required=""
+                title="nazwa@przykład.com"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="flex align-center justify-center" style="width:100%;margin-top:20px;">
+          <button type="submit" class="btn-yellow">Wyślij</button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+@keyframes pulse {
+    from {
+        transform: scale(1) rotate(180deg);
+    }
+
+    50% {
+        transform: scale(0.8) rotate(180deg);
+    }
+
+    80% {
+        transform: scale(0.9) rotate(180deg);
+    }
+
+    to {
+        transform: scale(1) rotate(180deg);
+    }
+}

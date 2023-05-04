@@ -1,0 +1,31 @@
+@import "../globalStyles";
+
+header {
+  padding: 0.625em 9.0625em;
+  @include breakpoint-up(xlarge) {
+    padding: 0.625em 15.9375em;
+  }
+}
+
+main {
+  padding: 0.625em 9.0625em;
+  @include breakpoint-up(xlarge) {
+    padding: 0.625em 15.9375em;
+  }
+
+  height: 680px;
+  
+}
+
+
+span {
+    font-family: $ff-poppins;
+    font-size: 21px;
+    text-align: center;
+    line-height: 80px;
+}
+
+strong {
+   color: $primaryBlue;
+   font-weight: $fw-bold;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Erecruit | Zaloguj się na swoje konto</title>
+    <link rel="stylesheet" href="./styles/login.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"/>  <!--   dodałem   --><!--   dodałem   --><!--   dodałem   -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Poppins:wght@400;700&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon.png"
+    />
+</head>
+<body>
+<img
+        src="./images/login_eclipse.svg"
+        alt=""
+        style="position: absolute; bottom: 0; right: 0"
+/>
+<img
+        src="./images/login_smimg-1.svg"
+        alt=""
+        style="position: absolute; bottom: 0; top: 0; margin: auto; left: 0"
+/>
+<img
+        src="./images/login_smimg-2.svg"
+        alt=""
+        style="position: absolute; bottom: 0; top: 0; margin: auto; right: 0"
+/>
+
+<header class="flex align-center justify-center">
+    <a href="/" class="no-link"
+    ><span class="logo--text">erecruit.pl</span></a
+    >
+</header>
+
+<main class="flex align-center justify-center direction-column">
+    <h1>Zaloguj się na swoje konto</h1>
+
+    <form
+            method="post"
+            th:action="@{/login}"
+            class="flex direction-column align-center justify-space-between"
+    >
+        <!--        DODANE DODANE DODANE DODANE DODANE DODANE DODANE-->
+        <div>
+            <!-- Thymeleaf + Spring Security error display -->
+            <div th:if="${param.error}" class="alert alert-danger">
+                Nieprawidłowy użytkownik lub hasło.
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success">
+                Wylogowano.
+            </div>
+        </div>
+        <!--        DODANE DODANE DODANE DODANE DODANE DODANE DODANE-->
+
+        <!-- INPUT EMAIL   -->
+        <!--        <div>-->
+        <!--            <label for="email">Adres e-mail</label>-->
+        <!--            <div style="margin-top: 5px">-->
+        <!--                <input-->
+        <!--                        type="email"-->
+        <!--                        id="email"-->
+        <!--                        name="email"-->
+        <!--                        placeholder="Adres e-mail"-->
+        <!--                        required-->
+        <!--                />-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        OR INPUT USERNAME-->
+        <div>
+            <label for="email" class="sr-only">Użytkownik</label>
+            <div style="margin-top: 5px">
+                <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="Email"
+                        required autofocus
+                >
+            </div>
+        </div>
+
+        <!--        <p>-->
+        <!--          <label for="username" class="sr-only">Username</label>-->
+        <!--          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>-->
+        <!--        </p>-->
+
+        <!-- INPUT PASSWORD  -->
+        <div>
+            <label for="password">Hasło</label>
+            <div style="margin-top: 5px">
+                <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Hasło"
+                        required
+                />
+            </div>
+        </div>
+
+        <input
+                name="_csrf"
+                type="hidden"
+                value="e7ccefd3-32d0-40da-960a-24c1cfc851c6"
+        />
+        <!-- SUBMIT BUTTON  -->
+        <button class="btn-yellow" type="submit">Zaloguj</button>
+
+
+    </form>
+    <span style="font-size: 14px; margin-top:20px;">
+        <a th:href="@{/signup}">Nie mam konta </a>
+        <!--        <a href="/signup" th:href="@{/signup}">Nie mam konta </a>-->
+      </span>
+</main>
+</body>
+</html>

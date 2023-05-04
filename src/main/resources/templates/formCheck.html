@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wysłano Formularz</title>
+    <style type="text/css">
+        span{
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+
+
+    </style>
+</head>
+<body>
+<div align="center">
+    <h1>Rekrutacja przebiegła pomyślnie!</h1>
+
+    <span>Szkoła pierwszego wyboru?</span><span th:text="${student.firstChoice}"></span><br>
+
+    <span>Imię:</span><span th:text="${student.name}"></span><br>
+    <span>Nazwisko:</span><span th:text="${student.surname}"></span><br>
+    <span>Data urodzin:</span><span th:text="${student.birthDate}"></span><br>
+    <span>Miejsce urodzin:</span><span th:text="${student.birthPlace}"></span><br>
+    <span>E-mail:</span><span th:text="${student.email}"></span><br>
+    <br>
+    <span>Adres:</span><span th:text="${student.address}"></span><br>
+    <span>Kod pocztowy:</span><span th:text="${student.zipcode}"></span><br>
+    <span>Miejscowość:</span><span th:text="${student.city}"></span><br>
+    <span>Województwo:</span><span th:text="${student.province}"></span><br>
+    <br>
+    <span>Imię opiekuna:</span><span th:text="${student.guardName}"></span><br>
+    <span>Nazwisko opiekuna:</span><span th:text="${student.guardSurname}"></span><br>
+    <span>Telefon do opiekuna:</span><span th:text="${student.guardTelephone}"></span><br>
+    <span>E-mail do opiekuna:</span><span th:text="${student.guardEmail}"></span><br>
+    <br>
+    <span>Wybór rozszerzenia:</span><span th:text="${student.extension}"></span><br>
+
+
+</div><br><br>
+
+<div align="center">
+    Czy dane są poprawne?<br><br>
+    <a  href="http://localhost:8080/form">NIE</a>
+
+
+    <form action="#" th:action="@{/formSuccess}" method="post" th:object="${student}">
+        <button type="submit">Next</button>
+    </form>
+</div>
+
+
+
+</body>
+</html>

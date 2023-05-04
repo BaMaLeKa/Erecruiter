@@ -1,0 +1,56 @@
+@import "../globalStyles";
+
+body {
+  background: #fafafa;
+  min-height: 100vh;
+  position: relative;
+}
+
+header {
+  padding: 3.75em 9.0625em;
+  @include breakpoint-up(xlarge) {
+    padding: 3.75em 15.9375em;
+  }
+}
+
+main {
+  margin-top: 50px;
+}
+
+form {
+  height: 185px;
+  margin-top: 50px;
+}
+
+input {
+  background: none;
+  border: 1px solid #c4c4c4;
+  border-radius: 3px;
+  height: 30px;
+  width: 320px;
+  font-family: $ff-montserrat;
+  font-weight: $fw-regular;
+  font-size: $fs-small;
+  padding-left: 10px;
+  background: #ffff;
+  transition: border 50ms ease-in-out;
+
+  &:focus {
+    outline-style: none;
+    border: 1px solid #707070;
+  }
+}
+
+label {
+  font-size: $fs-small;
+  font-family: $ff-poppins;
+  font-weight: $fw-regular;
+}
+
+button {
+  transition: opacity 200ms ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

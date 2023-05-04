@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erecruit | Utwórz konto użytkownika</title>
+    <link rel="stylesheet" href="./styles/signup.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon.png"
+    />
+  </head>
+  <body>
+    <img
+      src="./images/signup_smimg-1.svg"
+      alt=""
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 35%;
+        z-index: -1;
+        max-width: 35%;
+      "
+      aria-hidden="true"
+    />
+    <img
+      src="./images/signup_smimg-2.svg"
+      alt=""
+      aria-hidden="true"
+      style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 25%;
+        z-index: -1;
+      "
+    />
+    <img
+      src="./images/signup_eclipse-2.svg"
+      alt=""
+      aria-hidden="true"
+      style="
+        position: absolute;
+        top: 100px;
+        right: 20px;
+        width: 20%;
+        z-index: -1;
+      "
+    />
+    <img
+      src="./images/signup_smimg-4.svg"
+      alt=""
+      aria-hidden="true"
+      style="
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 10%;
+        z-index: -1;
+      "
+    />
+    <img
+      src="./images/signup_smimg-5.svg"
+      alt=""
+      aria-hidden="true"
+      style="position: absolute; top: 0; right: 0; width: 10%; z-index: -1"
+    />
+
+    <header class="flex align-center justify-center">
+      <a href="/" class="no-link"
+        ><span class="logo--text">erecruit.pl</span></a
+      >
+    </header>
+
+    <main class="flex align-center justify-center">
+      <div class="col1 flex direction-column align-center">
+        <div>
+          <h1 class="col1__heading">
+            Witamy w serwisie <strong>erecruit.pl</strong>
+          </h1>
+          <p class="col1__sub">
+            Utwórz darmowe konto użytownika, aby móc w pełni korzystać z
+            wszystkich funkcji serwisu rekrutacyjnego.
+          </p>
+
+          <p class="col1__sub2">Założenie konta pozwala na:</p>
+          <ul
+            class="flex direction-column align-start justify-space-between"
+            style="height: 200px; margin-top: 25px"
+          >
+            <li>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Natus,repellat?
+            </li>
+            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Provident voluptas eum facilis.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col2">
+        <div class="col2__container">
+            <!--            th:action=   @{/signup}   @{/processRegister}-->
+            <form
+            th:action="@{/signup}"
+            th:object="${user}"
+            method="post"
+            class="flex align-center justify-space-between direction-column"
+          >
+
+<!--            errors  -->
+<!--            <p class="error-message" th:if="${#fields.hasGlobalErrors()}" th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation error-->
+<!--            </p>-->
+<!--            errors  -->
+
+            <div class="form-box__wrapper">
+<!--              <div class="form-group" th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">-->
+
+              <label for="name">Imię</label>
+              <div class="form-box">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  th:field="*{name}"
+                  required
+                  placeholder="Imię"
+                />
+<!--                <p class="error-message" th:each="error: ${#fields.errors('firstName')}" th:text="${error}">Validation error</p>-->
+
+              </div>
+            </div>
+
+            <div class="form-box__wrapper">
+              <label for="surname">Nazwisko</label>
+              <div class="form-box">
+                <input
+                  type="text"
+                  name="surname"
+                  id="surname"
+                  th:field="*{surname}"
+                  required
+                  placeholder="Nazwisko"
+                />
+              </div>
+            </div>
+
+            <div class="form-box__wrapper">
+              <label for="email">Adres e-mail</label>
+              <div class="form-box">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  th:field="*{email}"
+                  required
+                  placeholder="Adres e-mail"
+                />
+              </div>
+            </div>
+
+            <div class="form-box__wrapper">
+              <label for="password">Hasło</label>
+              <div class="form-box">
+                <input
+                  type="password"
+                  name="password"
+                  th:field="*{password}"
+                  id="password"
+                  required
+                  placeholder="Hasło"
+                />
+              </div>
+            </div>
+
+            <div class="form-box__wrapper">
+              <label for="rpassword">Powtórz hasło</label>
+              <div class="form-box">
+                <input
+                  type="password"
+                  name="rpassword"
+                  id="rpassword"
+                  required
+                  placeholder="Powtórz hasło"
+                />
+              </div>
+            </div>
+
+            <div>
+              <input type="checkbox" field="tos" name="tos" id="tos" required />
+              <label for="tos"
+                >Wyrażam zgodę na przetwarzanie moich danych w celach
+                rekrutacyjnych oraz zapoznałem się z
+                <a href="/help">warunkami użytkowania</a>.</label
+              >
+            </div>
+
+            <button type="submit" class="btn-yellow" style="width: 100%">
+              Utwórz konto
+            </button>
+
+            <div>
+              <span style="font-size: 12px">
+                <!-- href href href -->
+                Masz już konto? <a href="/login" th:href="@{/login}">Zaloguj się</a>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Erecruit | Pobierz potwierzenie PDF</title>
+    <link rel="stylesheet" href="./styles/formSuccess.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Poppins:wght@400;700&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon.png"
+    />
+</head>
+<body>
+<img class="undr" src="./images/formSuccess_image.svg" alt=""/>
+<header class="flex align-center justify-center">
+    <a href="/" class="no-link">
+        <span class="logo--text">erecruit.pl</span>
+    </a>
+</header>
+<div
+        class="flex direction-column align-center justify-center"
+        style="margin: 75px 0"
+>
+    <h1>Udało się! 🎉</h1>
+    <h1 style="margin-top: 20px">Proces rekrutacji przebiegł pomyślnie</h1>
+</div>
+<main class="flex direction-column align-center justify-space-between">
+      <span class="info-text"
+      >Pamiętaj o obowiązku dostarczenia odpisu lub oryginału świadectwa
+        ukończenia szkoły podstawowej, wraz z innymi wymaganymi dokumentami
+        rekrutacyjnymi, w terminie do 31 lipca 2021 roku.
+      </span>
+    <span class="info-text"
+    >Dokumenty należy dostarczyć do sekretariatu szkoły znajdującego się w
+        budynku głownym położonym przy ulicy Warszawskiej 37 w Kielcach.</span
+    >
+    <span class="info-text"
+    >Szczegółowe informacje na temat potrzebnych dokumentów, jak i całego
+        przebiegu rekrutacji znajdziesz <a href="/help">tutaj</a>.</span
+    >
+</main>
+<div class="pdf-info flex align-center justify-center direction-column">
+      <span
+      >Do wymienionych dokumentów należy dołączyć potwierdzenie rekrutacji
+        poprzez stronę internetową erecruit.pl.</span
+      >
+    <!-- BUTTON BUTTON -->
+    <!--    <button class="pdf-button">Wygeneruj potwierdzenie PDF</button>-->
+    <form action="http://localhost:8080/singleDownload">
+<!--        <input class="pdf-button" type="submit" value="Pobierz"/>-->
+        <button class="pdf-button" type="submit">Wygeneruj potwierdzenie PDF</button>
+    </form>
+
+    <!-- BUTTON BUTTON -->
+
+
+    <!--<form action="#" th:action="@{/formDownload}" method="post" th:object="${student}">
+            <button type="submit">Pobierz</button>
+            <a th:href="@{'/formDownload'+${student}}">PDF</a>
+
+        </form>-->
+
+
+    <!--    <a th:href="@{'/formDownload'+${student}}">Pobierz PDF</a>-->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@import "../globalStyles";
+
+h1 {
+  width: 591px;
+  text-align: center;
+}
+
+header {
+  padding: 0.625em 9.0625em;
+  @include breakpoint-up(xlarge) {
+    padding: 0.625em 15.9375em;
+  }
+}
+
+.info-block {
+  margin-bottom: 0.85em;
+}
+
+.info-label {
+  font-size: $fs-small;
+  font-family: $ff-poppins;
+  font-weight: $fw-regular;
+}
+
+.info-inside {
+  margin-top: 5px;
+  background: #f2f2f2;
+  border: none;
+  border-radius: 3px;
+  height: 30px;
+  width: 15.625em;
+}
+
+.user-info {
+  font-family: $ff-montserrat;
+  font-weight: $fw-regular;
+  font-size: $fs-small;
+  padding-left: 10px;
+}
+
+.info-col-2 {
+  margin: 0 60px;
+}
+
+.btn-send,
+.btn-edit {
+  background: $primaryYellow;
+}

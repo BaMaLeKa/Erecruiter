@@ -1,0 +1,136 @@
+@import "../globalStyles";
+
+body {
+  background: #fafafa;
+  min-height: 100vh;
+  position: relative;
+}
+
+main {
+  margin-top: 4vh;
+}
+
+header {
+  padding: 3.75em 9.0625em;
+  @include breakpoint-up(xlarge) {
+    padding: 3.75em 15.9375em;
+  }
+}
+
+.col1 {
+  width: 385px;
+  height: 630px;
+  margin-right: 2vw;
+
+  &__heading {
+    width: 350px;
+    line-height: 50px;
+  }
+
+  &__sub {
+    width: 300px;
+    line-height: 25px;
+    font-size: 18px;
+    margin: 40px 0;
+    font-weight: $fw-bold;
+  }
+
+  &__sub2 {
+    font-size: 18px;
+    width: 300px;
+  }
+
+  strong {
+    color: $primaryBlue;
+  }
+
+  li {
+    width: 300px;
+    font-size: 14px;
+
+    &::before {
+      content: url(../../images/check.svg);
+      height: 12px;
+      width: 12px;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+}
+
+.col2 {
+  width: 385px;
+  height: 630px;
+  border-radius: 10px;
+  box-shadow: 3px 0px 15px 4px hsla(0, 0%, 0%, 0.1);
+  background: white;
+  position: relative;
+
+  &::after {
+    content: url(../../images/signin_smimg-3.svg);
+    position: absolute;
+    right: -35px;
+  }
+
+  &__container {
+    padding: 25px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.form-box {
+  margin-top: 5px;
+  &__wrapper {
+    width: 100%;
+  }
+}
+
+form {
+  height: 100%;
+  padding-top: 10px;
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    background: none;
+    border: 1px solid #c4c4c4;
+    border-radius: 3px;
+    width: 100%;
+    height: 30px;
+    font-family: $ff-montserrat;
+    font-weight: $fw-regular;
+    font-size: $fs-small;
+    padding-left: 10px;
+    background: #ffff;
+    transition: border 100ms ease-in-out;
+
+    &:focus {
+      outline-style: none;
+      border: 1px solid #707070;
+    }
+
+    &:hover {
+      border-color: #707070;
+    }
+  }
+}
+
+label {
+  font-size: $fs-small;
+  font-family: $ff-poppins;
+  font-weight: $fw-regular;
+}
+
+label[for="tos"] {
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+button {
+  transition: opacity 200ms ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

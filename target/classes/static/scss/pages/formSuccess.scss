@@ -1,0 +1,56 @@
+@import "../globalStyles";
+
+body {
+  height: 100vh;
+  position: relative;
+}
+
+h1 {
+  width: 591px;
+  text-align: center;
+}
+
+header {
+  padding: 0.625em 9.0625em;
+  @include breakpoint-up(xlarge) {
+    padding: 0.625em 15.9375em;
+  }
+}
+
+main {
+  height: 200px;
+}
+
+
+
+
+.info-text {
+  width: 550px;
+  text-align: center;
+
+  &:nth-child(2) {
+    margin: 30px 0;
+  }
+}
+
+.pdf-info {
+  margin-top: 130px;
+  span {
+    width: 590px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .pdf-button {
+    background: $primaryYellow;
+  }
+}
+
+.undr {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 500px;
+}
